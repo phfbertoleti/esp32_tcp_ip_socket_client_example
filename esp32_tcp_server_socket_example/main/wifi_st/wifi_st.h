@@ -1,0 +1,42 @@
+/* Header file: wi-fi (station) */
+
+#ifndef HEADER_MOD_WIFI_ST_AP
+#define HEADER_MOD_WIFI_ST_AP
+
+/* wi-fi security settings */
+#if CONFIG_ESP_WIFI_AUTH_OPEN
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_OPEN
+#elif CONFIG_ESP_WIFI_AUTH_WEP
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WEP
+#elif CONFIG_ESP_WIFI_AUTH_WPA_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA_PSK
+#elif CONFIG_ESP_WIFI_AUTH_WPA2_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA2_PSK
+#elif CONFIG_ESP_WIFI_AUTH_WPA_WPA2_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA_WPA2_PSK
+#elif CONFIG_ESP_WIFI_AUTH_WPA3_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA3_PSK
+#elif CONFIG_ESP_WIFI_AUTH_WPA2_WPA3_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WPA2_WPA3_PSK
+#elif CONFIG_ESP_WIFI_AUTH_WAPI_PSK
+#define WIFI_SCAN_AUTH_MODE_THRESHOLD WIFI_AUTH_WAPI_PSK
+#endif
+
+/* Credenciais wi-fi - station */
+#define WIFI_SSID_ST_DEFAULT           CONFIG_ESP_WIFI_ST_SSID
+#define WIFI_PASS_ST_DEFAULT           CONFIG_ESP_WIFI_ST_PASSWORD
+#define WIFI_ST_STATIC_IP              "192.168.0.145"
+#define WIFI_ST_GATEWAY                "192.168.0.1"
+#define WIFI_ST_NETWORK_MASK           "255.255.255.0"
+#define MAX_SSID_ST_SIZE_WIFI           32
+#define MAX_PASS_ST_SIZE_WIFI           64
+
+/* NVS keys of wi=fi credentials */
+#define KEY_SSID_WIFI             "ssid"
+#define KEY_PASS_WIFI             "pass"
+
+#endif
+
+/* Prototypes */
+void wifi_init_st(void);
+bool get_status_wifi(void);

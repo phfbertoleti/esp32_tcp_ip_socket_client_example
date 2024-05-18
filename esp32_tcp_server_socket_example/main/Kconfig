@@ -1,0 +1,39 @@
+menu "Settings - wifi station mode"
+
+    config ESP_WIFI_ST_SSID
+        string "SSID - WiFi (station)"
+        default "YOUR_SSID"
+        help
+            SSID - WiFi (station).
+
+    config ESP_WIFI_ST_PASSWORD
+        string "Password - WiFi (station)"
+        default "YOUR_PASSWORD"
+        help
+            Password - WiFi (station).
+                       
+    choice ESP_WIFI_SCAN_AUTH_MODE_THRESHOLD
+        prompt "Wi-fi security"
+        default ESP_WIFI_AUTH_WPA_WPA2_PSK
+        help
+            Wi-fi security (station mode).  
+
+        config ESP_WIFI_AUTH_OPEN
+            bool "OPEN"
+        config ESP_WIFI_AUTH_WEP
+            bool "WEP"
+        config ESP_WIFI_AUTH_WPA_PSK
+            bool "WPA PSK"
+        config ESP_WIFI_AUTH_WPA2_PSK
+            bool "WPA2 PSK"
+        config ESP_WIFI_AUTH_WPA_WPA2_PSK
+            bool "WPA/WPA2 PSK"
+        config ESP_WIFI_AUTH_WPA3_PSK
+            bool "WPA3 PSK"
+        config ESP_WIFI_AUTH_WPA2_WPA3_PSK
+            bool "WPA2/WPA3 PSK"
+        config ESP_WIFI_AUTH_WAPI_PSK
+            bool "WAPI PSK"
+    endchoice
+
+endmenu
